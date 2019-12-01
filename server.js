@@ -1,6 +1,7 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
+    os = require('os'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
@@ -90,7 +91,7 @@ app.get('/', function (req, res) {
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null});
+    res.render('index.html', { pageCountMessage : os.hostname()});
   }
 });
 
